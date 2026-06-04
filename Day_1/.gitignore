@@ -2,7 +2,10 @@
 __pycache__/
 *.py[cod]
 *$py.class
+
+# macOS Finder metadata
 .DS_Store
+**/.DS_Store
 
 # Jupyter
 .ipynb_checkpoints/
