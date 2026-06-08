@@ -132,8 +132,3 @@ bjobs -l <job-id>     # detailed status of one job
 | Queue / cores / memory / walltime | submit scripts | Leave as-is - sized for this CPU-only job |
 
 ---
-
-your reference.
-
-> Note: `4s11.pdb` appears in both `input_vhh` and `target_vhh`, so it scores
-> 1.0000 against itself - that's expected and a handy sanity check.
