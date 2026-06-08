@@ -204,7 +204,7 @@ The plot is an image, so it is easiest to look at after copying it to your own c
 **Copy the results down to your computer** (run this **on your own machine**, not on the cluster):
 
 ```sh
-scp -r <your-id>@transfer.gbar.dtu.dk:./27666_Protein_Design/Day_1/results ./
+scp -r <your-id>@transfer.gbar.dtu.dk:./27666_Protein_Design/Day_1/results ./YourpathOnYourComputer
 ```
 
 You now have the scored table and the bar chart locally.
