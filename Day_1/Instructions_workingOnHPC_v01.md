@@ -242,5 +242,39 @@ That is the only change needed. Build the environment once, then submit jobs as 
 > env name `protein-design` against the course materials.
 ---
 
-*Course 27666 · Protein Design — Day 1, TM-align on the DTU HPC. See `README_batch.md` for full
-details of each script.*
+## Important reminder — what Day 1 is teaching you (and how it carries to GPU work)
+
+Day 1 exercise is a deliberately small, fast, CPU-only exercise — but the point isn't just the TM-align
+result. It's to learn the HPC habits you'll rely on for the heavy GPU work later in the project.
+
+**What to take away from Day 1:**
+
+- **The submission cycle:** log in → `linuxsh` → activate the environment → `bsub < script.sh` →
+  monitor with `bjobs` → collect results. 
+  This loop is the same for every job you'll run, CPU or GPU.
+- **Match the resource to the job.** TM-align is CPU-only, so it runs on the `hpc` queue. 
+  Always ask "does this tool actually use a GPU?" before choosing a queue. Putting CPU work on a GPU
+  wastes a scarce resource and doesn't run faster.
+- **The array pattern (Path C)** is how you run the *same job over many inputs* — screening
+  hundreds or thousands of structures, samples, or sequences. For 10 targets it's overkill (the
+  single job is faster), so here it's a teaching example. Learn the pattern now, on a safe CPU
+  task, so you can use it for real later.
+
+**When you move on to the heavy GPU jobs (protein-design workloads):**
+
+- **The GPU pool is small and shared.** Treat every slice of GPU as
+  something your classmates are also waiting for.
+- **One job, one GPU.** Request `#BSUB -gpu "num=1:mode=exclusive_process"`. A single heavy run
+  already uses its slice fully — there's nothing to gain from grabbing more.
+- **Don't aim job arrays at the GPU queue, and don't try to split one job across GPUs.** Arrays
+  are the CPU scaling pattern you learned here; on the shared GPU pool an array can swallow every
+  slice at once and block the whole class. If you have several GPU runs to do, submit them as
+  separate normal jobs and let the scheduler queue them.
+- **Right-size and release.** Don't request far more memory, cores, or walltime than the job needs,
+  and exit idle interactive GPU sessions so the slice frees up for the next person.
+- **Start from the provided submit scripts** for each exercise rather than writing GPU job scripts
+  from scratch.
+
+In short: Day 1 teaches the workflow and the judgment — *which queue, how much to request, when to
+parallelize and when not to* — so that when you reach the GPU-heavy work, you use a genuinely
+scarce shared resource well.
