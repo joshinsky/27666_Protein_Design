@@ -211,8 +211,7 @@ That is the only change needed. Build the environment once, then submit jobs as 
   prints `ok`, every later submission will work too.
 
 > ⚠️ **If activation fails:** double-check the path `/dtu/blackhole/00/c27666/miniforge3` and the
-> env name `protein-design` against the course materials — that single line is the one thing this
-> guide cannot verify for your account.
+> env name `protein-design` against the course materials 
 
 ---
 
