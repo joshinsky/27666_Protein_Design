@@ -1,22 +1,20 @@
 # Day 1 - TM-align on the HPC (batch jobs)
 
-> This is the **batch-job guide**. For the interactive walkthrough, open the
-> notebook `tm_compare_batch.ipynb` instead.
+This is the **batch-job guide**. For the interactive walkthrough, open the notebook `tm_compare_batch.ipynb` instead.
 
-Compare **one reference structure** against **all structures in a target
-folder** using [`tmtools`](https://pypi.org/project/tmtools/) (a Python wrapper
-around TM-align). Each `.pdb` file is assumed to hold a **single chain** (e.g.
-VHH structures prepared from SAbDab); the first chain is read.
+Compare **one reference structure** against **all structures in a target folder** using [`tmtools`](https://pypi.org/project/tmtools/) (a Python wrapper
+around TM-align). 
+Each `.pdb` file is assumed to hold a **single chain** (e.g. VHH structures prepared from SAbDab); the first chain is read.
 
 There are **two ways to run the same analysis**:
 
 1. **Interactive** - `tm_compare_batch.ipynb`. Run it cell by cell to explore
    and see the table/plot inline. Best for understanding what the analysis does.
+   
 2. **Batch on the HPC (LSF)** - the same logic as a script you submit to the
    cluster with `bsub`. This is what the rest of *this* guide teaches.
 
-The batch route comes in **two flavours** so you can learn both submission
-patterns:
+The batch route comes in **two flavours** so you can learn both submission patterns:
 
 | Route | Script | Submit script | When |
 |-------|--------|---------------|------|
