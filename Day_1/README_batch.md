@@ -123,12 +123,9 @@ bjobs -l <job-id>     # detailed status of one job
 
 ## What you need to adjust
 
-For this exercise, on this dataset, the **only required edit** is the environment block in whichever submit script you use (the `source ... conda.sh`
-/ `conda activate tmenv` lines) so it matches how Python loads on your account.
 
 | Thing | Where | Needed? |
 |-------|-------|---------|
-| Conda / module activation | `submit_tm.sh`, `submit_tm_array.sh` | **Yes** - fails immediately if wrong |
 | Array range `[1-10]` | `submit_tm_array.sh` | Only if you change the target set (10 is correct here) |
 | Email + `-B`/`-N` lines | `submit_tm.sh` | Optional - uncomment for start/finish emails |
 | Data paths | submit scripts' `python ...` call | Only if you rename the data folders |
