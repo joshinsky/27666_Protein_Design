@@ -31,17 +31,15 @@
 source /dtu/blackhole/00/c27666/miniforge3/etc/profile.d/conda.sh
 conda activate protein-design
 
-# --- environment - if not using shared env ---------------------------------------------------------
-# EDIT THIS to match how you load Python on the cluster. Either a conda env:
-#source ~/miniconda3/etc/profile.d/conda.sh
+# --- environment - if NOT using the shared env -----------------------------
+# Build your own once:  conda env create -f environment.yml   (creates "tmenv")
+# Then comment out the two shared-env lines above and uncomment these:
+#module load miniconda3
 #conda activate tmenv
-
-# ...or a module + virtualenv, e.g.:
-#   module load python3/3.11
-#   source ~/tmenv/bin/activate
 
 # --- run -----------------------------------------------------------------
 python tm_compare.py \
     --ref-dir    data/input_vhh \
     --target-dir data/target_vhh \
     --out-dir    results
+
