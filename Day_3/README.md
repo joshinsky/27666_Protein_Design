@@ -8,9 +8,9 @@ A collection of Google Colab notebooks for computational protein binder design u
 
 | Notebook | Description | Open in Colab |
 |----------|-------------|---------------|
-| `01_rfdiffusion_binder_design.ipynb` | Structure-based binder diffusion with RFdiffusion | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR-USERNAME/binder-design-workflows/blob/main/notebooks/01_rfdiffusion_binder_design.ipynb) |
-| `02_proteinmpnn_sequence_design.ipynb` | Sequence design on fixed backbone with ProteinMPNN | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR-USERNAME/binder-design-workflows/blob/main/notebooks/02_proteinmpnn_sequence_design.ipynb) |
-| `03_combined_pipeline.ipynb` | End-to-end: RFdiffusion → ProteinMPNN → scoring | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR-USERNAME/binder-design-workflows/blob/main/notebooks/03_combined_pipeline.ipynb) |
+| `01_rfdiffusion_binder_design.ipynb` | Structure-based binder diffusion with RFdiffusion | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/wolffmaster/binder-design-workflows/blob/main/notebooks/01_rfdiffusion_binder_design.ipynb) |
+| `02_proteinmpnn_sequence_design.ipynb` | Sequence design on fixed backbone with ProteinMPNN | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/wolffmaster/binder-design-workflows/blob/main/notebooks/02_proteinmpnn_sequence_design.ipynb) |
+| `03_combined_pipeline.ipynb` | End-to-end: RFdiffusion → ProteinMPNN → scoring | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/wolffmaster/binder-design-workflows/blob/main/notebooks/03_combined_pipeline.ipynb) |
 
 > **Note:** Replace `YOUR-USERNAME` with your GitHub username for the Colab badges to work.
 
