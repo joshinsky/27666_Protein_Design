@@ -26,9 +26,14 @@
 
 mkdir -p results/logs results/parts
 
-# --- environment (EDIT to match your setup; see submit_tm.sh) ------------
-source ~/miniconda3/etc/profile.d/conda.sh
-conda activate tmenv
+# --- environment ---------------------------------------------------------
+# Shared course environment - no edit needed for course 27666.
+source /dtu/blackhole/00/c27666/miniforge3/etc/profile.d/conda.sh
+conda activate protein-design
+
+# --- environment -if not using shared env ------------
+#source ~/miniconda3/etc/profile.d/conda.sh
+#conda activate tmenv
 
 # --- run one target, selected by the array index -------------------------
 python tm_compare_array.py \
