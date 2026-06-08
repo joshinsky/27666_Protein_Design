@@ -32,6 +32,14 @@ ssh <your-id>@login1.hpc.dtu.dk
 
 Enter your DTU password when prompted. You are now on a **login node**.
 
+#Setting up congig in HPC
+
+Host DTU-HPC
+    HostName login1.hpc.dtu.dk
+    User x123456
+    IdentityFile ~/.ssh/id_rsa
+    ForwardAgent yes
+
 ## 2. Move to an interactive node
 
 The login node is only for logging in — you may see a warning telling you not to run programs
