@@ -1,0 +1,16 @@
+{
+    "name": "rfd3_test_CLR_RAMP1_test_0_model_0__id3",
+    "components": [
+        {
+            "seq": "AQLGAMKAAAERVERARAGVADPDAFLARVEEELERLKEEMKKAKEAKDVEALRKVLEEAGRLYETCLVARDLAYAAGKLETAARFEEAARRARSLADEALHALEELEA",
+            "chain_id": "A"
+        },
+        {
+            "path": "/content/drive/MyDrive/protein_design/inputs/6e3y_binding_site.pdb"
+        }
+    ],
+    "template_selection": [
+        "B",
+        "C"
+    ]
+}

@@ -1,0 +1,38 @@
+[
+    {
+        "name": "5XH3_5XH3_1_model_0_1",
+        "components": [
+            {
+                "seq": "GAAAAATLAACAAAAAAAAAAAAAGDVDAVVAICAAAPGLGGRAAAALADAIEAGALPASFLGERSAEETIALLREAAAEAEANSGGRVARMRAAGVPAGDIVYAICRDKAAGGAAMAAARNAVEFAEAIRAHAAGAAAATAEVAALRAAGGTISDEELAAALARGATGGAQIAAALAAWAAQVAANA",
+                "chain_id": "A"
+            },
+            {
+                "smiles": "COC(=O)c1ccc(C(=O)OCCO)cc1"
+            }
+        ]
+    },
+    {
+        "name": "5XH3_5XH3_1_model_0_2",
+        "components": [
+            {
+                "seq": "GAAAAATLAAVAAAAAAAAAAAAAGDTAAVVAIMAAVPGAGGRAAAALAAAIAAGALPASFLGDLSAADTIARLNAAAAAAEANSGGRVKRLAAAGWPDGDIVYAQCRDKLAGGQAMAAARNAVEFADAILAHAAGSAAATAEVAARRAAGGTVSADELAAALARGATGGALIAAALARWAALVAANA",
+                "chain_id": "A"
+            },
+            {
+                "smiles": "COC(=O)c1ccc(C(=O)OCCO)cc1"
+            }
+        ]
+    },
+    {
+        "name": "5XH3_5XH3_1_model_0_3",
+        "components": [
+            {
+                "seq": "GAAAAATLAACAAAAAAMAAAAAAGDVAAVVAIAAAHPGLGGRAARALADAIEAGALPASFLGDRSAEETIALLREAAAAAEANSGGRVKRMREAGVPDGDIVHAICADKAAGGAAMAAARNAVEFADAVRAHAAGAAAATAAVAALRAAGGTISAAALAAALAAGAAGGAAIAAALAAWAAQVAANA",
+                "chain_id": "A"
+            },
+            {
+                "smiles": "COC(=O)c1ccc(C(=O)OCCO)cc1"
+            }
+        ]
+    }
+]

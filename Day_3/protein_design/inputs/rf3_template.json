@@ -1,0 +1,13 @@
+{
+    "name": "CLR_RAMP1",
+    "components": [
+        {
+            "seq": "PLACEHOLDER",
+            "chain_id": "A"
+        },
+        {
+            "path": "/content/drive/MyDrive/protein_design/inputs/6e3y_binding_site.pdb"
+        }
+    ],
+    "template_selection": ["B", "C"]
+}
