@@ -27,9 +27,15 @@
 #BSUB -e tm_compare_%J.err
 
 # --- environment ---------------------------------------------------------
+# Shared course environment - no edit needed for course 27666.
+source /dtu/blackhole/00/c27666/miniforge3/etc/profile.d/conda.sh
+conda activate protein-design
+
+# --- environment - if not using shared env ---------------------------------------------------------
 # EDIT THIS to match how you load Python on the cluster. Either a conda env:
-source ~/miniconda3/etc/profile.d/conda.sh
-conda activate tmenv
+#source ~/miniconda3/etc/profile.d/conda.sh
+#conda activate tmenv
+
 # ...or a module + virtualenv, e.g.:
 #   module load python3/3.11
 #   source ~/tmenv/bin/activate
