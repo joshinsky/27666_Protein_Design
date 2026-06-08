@@ -76,7 +76,7 @@ scp -r <id>@transfer.gbar.dtu.dk:./Day_1/results ./
 
 ---
 
-## Route 1 - Single job (recommended)
+## Route 1 - Single job
 
 One `bsub` submission runs `tm_compare.py`, which loops over every target in
 sequence and writes the final CSV and plot itself.
@@ -123,8 +123,7 @@ bjobs -l <job-id>     # detailed status of one job
 
 ## What you need to adjust
 
-For this exercise, on this dataset, the **only required edit** is the
-environment block in whichever submit script you use (the `source ... conda.sh`
+For this exercise, on this dataset, the **only required edit** is the environment block in whichever submit script you use (the `source ... conda.sh`
 / `conda activate tmenv` lines) so it matches how Python loads on your account.
 
 | Thing | Where | Needed? |
@@ -137,20 +136,6 @@ environment block in whichever submit script you use (the `source ... conda.sh`
 
 ---
 
-## How to read the numbers
-
-| TM-score | meaning |
-|----------|---------|
-| > 0.5 | the two structures very likely share the same fold |
-| 0.2 - 0.5 | partial / ambiguous similarity |
-| < 0.2 | essentially unrelated |
-
-**RMSD** is the deviation (in Angstroms) over the aligned region; lower means a
-tighter overlap.
-
-**Why two TM-scores?** TM-score is not symmetric. Because the reference is
-always structure 1, `TM (norm. by reference)` uses the *same denominator* for
-every target, which makes it the fair column for **ranking** targets against
 your reference.
 
 > Note: `4s11.pdb` appears in both `input_vhh` and `target_vhh`, so it scores
