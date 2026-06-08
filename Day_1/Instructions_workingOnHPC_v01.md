@@ -15,7 +15,7 @@ array.
 5. [Run the analysis (notebook, single job, or array)](#5-run-the-analysis)
 6. [Watch the job live](#6-watch-the-job-live)
 7. [Get an email when it finishes](#7-get-an-email-when-it-finishes)
-8. [Bring results back](#8-bring-results-back-to-your-computer)
+8. [Where the results are, and bringing them back](#8-where-the-results-are-and-bringing-them-back)
 9. [Optional: build your own environment](#9-optional--build-your-own-environment)
 10. [Good to know](#10-good-to-know)
 
@@ -88,11 +88,14 @@ scp -r Day_1 <your-id>@transfer.gbar.dtu.dk:./
 
 ## 5. Run the analysis
 
-There are **three ways** to run the same comparison — Please do try working on the same in all three methods for learning.
+There are **three ways** to run the same comparison — all produce the same scored table and plot.
+Pick whichever suits you.
 
 **Path A — Interactive notebook.** Open `tm_compare_batch.ipynb` and run it cell by cell. Best for
 exploring and seeing the table and plot inline as you go. (Run it on an interactive node after
-`linuxsh`, not on the login node.)
+`linuxsh`, not on the login node.) The notebook saves `tm_results.csv` directly into `Day_1/` and
+shows the plot inline (no PNG is saved) — a different location from the batch paths below, which
+use a `results/` folder.
 
 The other two paths submit the work to the cluster with `bsub`, from inside the `Day_1` folder.
 Both write to `results/tm_results.csv` and `results/tm_scores.png`.
@@ -167,15 +170,40 @@ resource-usage summary) at the address you set.
 > **Tip:** in the file these lines start with `##BSUB` (two hashes = switched off). Removing one
 > hash to leave `#BSUB` turns the option on.
 
-## 8. Bring results back to your computer
+## 8. Where the results are (and bringing them back)
 
-Once the job is `DONE`, copy the results down (run this **on your own machine**):
+When the job is `DONE`, the output is written into a `results/` folder inside `Day_1` **on the
+cluster**:
+
+```
+Day_1/results/
+├── tm_results.csv     # the scored table (ranked by TM-score)
+└── tm_scores.png      # the bar chart
+```
+
+(The job array also leaves per-task files in `results/parts/` and logs in `results/logs/` — you
+can ignore those; `merge_results.py` combines the parts into the same `tm_results.csv`.)
+
+**View them on the cluster** without downloading:
+
+```sh
+cat results/tm_results.csv      # print the table to the terminal
+column -s, -t results/tm_results.csv | less   # nicer aligned view (q to quit)
+```
+
+The plot is an image, so it is easiest to look at after copying it to your own computer.
+
+**Copy the results down to your computer** (run this **on your own machine**, not on the cluster):
 
 ```sh
 scp -r <your-id>@transfer.gbar.dtu.dk:./27666_Protein_Design/Day_1/results ./
 ```
 
 You now have the scored table and the bar chart locally.
+
+> **Note — notebook output is elsewhere:** the locations above are for the **batch** paths
+> (single job and array). If you ran the **notebook** instead, it saves `tm_results.csv` directly
+> in `Day_1/` (not in `results/`) and shows the plot inline rather than saving a PNG.
 
 ## 9. Optional — build your own environment
 
@@ -204,15 +232,14 @@ That is the only change needed. Build the environment once, then submit jobs as 
 
 - **Login node vs interactive vs compute.** You log into a login node, type `linuxsh` to reach an
   interactive node for hands-on work, and `bsub` sends jobs to compute nodes for the heavy lifting.
-- **CPU only.** TM-align does not use a GPU, so these jobs run on the `hpc` queue, not a GPU queue.
+- **CPU only.** TM-align does not use a GPU, so these jobs run on the `hpc` queue, not a GPU queue - please keep it so.
 - **Outputs stay out of Git.** The `results/` folder and the generated CSV / PNG are ignored by
   `.gitignore`, so runs will not clutter the repository.
 - **First-run check.** The first time, run the Step 3 activation by hand; if `import tmtools`
   prints `ok`, every later submission will work too.
 
-> ⚠️ **If activation fails:** double-check the path `/dtu/blackhole/00/c27666/miniforge3` and the
-> env name `protein-design` against the course materials 
-
+> **If activation fails:** double-check the path `/dtu/blackhole/00/c27666/miniforge3` and the
+> env name `protein-design` against the course materials.
 ---
 
 *Course 27666 · Protein Design — Day 1, TM-align on the DTU HPC. See `README_batch.md` for full
