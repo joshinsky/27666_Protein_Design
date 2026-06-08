@@ -8,22 +8,12 @@ This lecture provides an introduction to basic machine learning concepts tailore
 
 ### What You'll Learn
 
-1. **Classification Exercise**  
-   - Train classification models to categorize different types of snake venoms.
-
 2. **Regression Exercise**  
    - Build regression models in machine learning-guided directed evolution (MLDE) to predict mutations that enhance the catalytic activity of enzymes.
 
-### How We'll Proceed
+1. **Classification Exercise**  
+   - Train classification models to categorize different types of snake venoms. 
+   
+The classification exercise has a little more empty space to fill in yourself, if you are entirely new to ML I recommend starting with the regression exercise, some of it will carry over to the snake venom exercises. The snake venom exercises are a bit more open ended on purpose, so you have to find solutions (AI or internet) and evaluate if it makes sense. 
 
-We will implement exercises from scratch using **scikit-learn** and reusable Python utilities. This keeps the preprocessing, model fitting, and evaluation steps visible so students can adapt them to new protein datasets.
-
-Students should work through the classification notebook with short discussion checkpoints: predict the outcome, run the code, explain the result to a neighbor, and then connect the result back to the biological question.
-
-### Bonus Content
-
-This directory also includes a **bonus lecture on Feed-Forward Neural Networks (FFNN)** for those interested in the foundations of modern AI technologies. If you're new to this subject, I highly recommend reviewing the FFNN material, as a basic understanding will be assumed in later lectures.
-
----
-
-Dive in and enjoy learning how machine learning can revolutionize protein design and engineering!
+Have fun!

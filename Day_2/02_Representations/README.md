@@ -1,7 +1,8 @@
 # Introduction
 **Author/contact:** Jonathan Funk ([jonfu@dtu.dk](mailto:jonfu@dtu.dk))
 
-This lecture provides an introduction to protein representations and representation learning through latent variable models (LVMs). 
+These exercises provide an introduction to protein representations and representation learning through latent variable models (LVMs). Latent variable models are a great way to teach foundational principles of modern machine learning algorithms, and generative models.
+
 We are going to cover:
 
 - **Simple representations**:
@@ -29,10 +30,3 @@ Next, we will train latent variable models and examine the resulting representat
 Finally, we will connect these representations to standard **scikit-learn** and **PyTorch** workflows.
 
 The key teaching goal is to make students reason about inductive bias. For each representation, students should be able to explain what biological similarity it makes visible to a model and what information it may hide.
-
-### Bonus Content
-
-For those interested, we also provide a Jupyter notebook on protein language models (pLMs) and structural representation models, 
-which are among the most advanced and powerful representation learning algorithms. If you are following the course 
-[27666 AI-guided Protein Science: From Design to Engineering](https://kurser.dtu.dk/course/2024-2025/27666?menulanguage=en) 
-at the Technical University of Denmark (DTU), you will learn more about them in later lectures.
