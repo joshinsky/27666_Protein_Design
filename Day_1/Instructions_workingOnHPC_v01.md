@@ -88,8 +88,7 @@ scp -r Day_1 <your-id>@transfer.gbar.dtu.dk:./
 
 ## 5. Run the analysis
 
-There are **three ways** to run the same comparison — all produce the same scored table and plot.
-Pick whichever suits you.
+There are **three ways** to run the same comparison — Please do try working on the same in all three methods for learning.
 
 **Path A — Interactive notebook.** Open `tm_compare_batch.ipynb` and run it cell by cell. Best for
 exploring and seeing the table and plot inline as you go. (Run it on an interactive node after
