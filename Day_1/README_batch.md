@@ -30,7 +30,7 @@ patterns:
 Day_1/
 ├── README.md                  # short landing note (notebook + batch pointers)
 ├── README_batch.md            # this guide - the batch-job instructions
-├── tm_compare_batch.ipynb     # interactive notebook (unchanged)
+├── tm_compare_batch.ipynb     # interactive notebook
 ├── tm_compare.py              # single-job script
 ├── tm_compare_array.py        # array worker (one target per task)
 ├── merge_results.py           # merges array outputs into one table + plot
