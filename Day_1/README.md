@@ -8,4 +8,10 @@ Two ways to run it:
 1. **Interactive:** open `tm_compare_batch.ipynb` and run it cell by cell.
 2. **Batch on the HPC (LSF):** follow **`README_batch.md`** - it covers asingle-job and a job-array submission.
 
+If the `c27666 Protein Design` kernel is not visible in Jupyter, run:
+
+```bash
+./register_jupyter_kernels.sh
+```
+
 Data lives in `data/input_vhh/` (the reference) and `data/target_vhh/` (the targets).
