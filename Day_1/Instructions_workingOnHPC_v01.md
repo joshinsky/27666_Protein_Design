@@ -34,8 +34,7 @@ Enter your DTU password when prompted. You are now on a **login node**.
 
 #Setting up config in VSCode for HPC
 
-Host DTU-HPC
-
+    Host DTU-HPC
     HostName login1.hpc.dtu.dk
     User x123456
     IdentityFile ~/.ssh/id_rsa
