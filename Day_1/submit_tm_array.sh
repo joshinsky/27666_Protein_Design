@@ -27,15 +27,9 @@
 mkdir -p results/logs results/parts
 
 # --- environment ---------------------------------------------------------
-# Shared course environment - no edit needed for course 27666.
-source /dtu/blackhole/00/c27666/miniforge3/etc/profile.d/conda.sh
+# Shared course environment installed in this workspace.
+. /dtu/blackhole/00/c27666/miniforge3/etc/profile.d/conda.sh
 conda activate protein-design
-
-# --- environment - if NOT using the shared env -----------------------------
-# Build your own once:  conda env create -f environment.yml   (creates "tmenv")
-# Then comment out the two shared-env lines above and uncomment these:
-#module load miniconda3
-#conda activate tmenv
 
 # --- run one target, selected by the array index -------------------------
 python tm_compare_array.py \
@@ -43,4 +37,3 @@ python tm_compare_array.py \
     --target-dir data/target_vhh \
     --out-dir    results/parts \
     --index      $LSB_JOBINDEX
-
