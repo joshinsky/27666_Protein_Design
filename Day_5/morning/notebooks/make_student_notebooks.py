@@ -138,65 +138,67 @@ NOTEBOOK1_BLANKS = [
 # Notebook 2 — InstaNexus on nb6
 # ============================================================================
 NOTEBOOK2_BLANKS = [
-    # TODO_1: --conf cutoff (appears in both greedy + dbg commands; one replace catches both)
+    # TODO_1: CONF_CUTOFF
     (
-        "'--conf', '0.8',",
-        "'--conf', '___',    # TODO_1: InstaNovo confidence cutoff. The InstaNexus README "
-        "uses 0.9 for BSA (~600 aa, high redundancy). nb6 is ~150 aa — should you be stricter "
-        "or more permissive? (try 0.8)",
-        '`TODO_1` (Sec. 5+6) — InstaNovo confidence cutoff `--conf` (applied to both greedy + DBG runs).',
+        'CONF_CUTOFF    = 0.8    # per-residue confidence cutoff for keeping a peptide',
+        'CONF_CUTOFF    = ___    # TODO_1: per-residue confidence cutoff for keeping a peptide. '
+        'Try 0.8 first; relax to 0.7 if very few peptides survive, tighten to 0.9 to keep only '
+        'the cleanest predictions.',
+        '`TODO_1` (Sec. 6) — per-residue confidence cutoff (`CONF_CUTOFF`).',
     ),
-    # TODO_2: --min-overlap
+    # TODO_2: MIN_OVERLAP
     (
-        "'--min-overlap', '3',",
-        "'--min-overlap', '_',    # TODO_2: minimum amino-acid overlap to chain two peptides "
-        "in greedy mode. Trade-off: 2 → many false joins; 5 → very few chains. Try 3.",
-        '`TODO_2` (Sec. 5+6) — minimum peptide overlap `--min-overlap`.',
+        'MIN_OVERLAP    = 3      # minimum AA overlap to chain two peptides',
+        'MIN_OVERLAP    = _      # TODO_2: minimum AA overlap to chain two peptides. '
+        '2 = many false joins; 5 = very few chains. Try 3.',
+        '`TODO_2` (Sec. 6) — minimum peptide overlap (`MIN_OVERLAP`).',
     ),
-    # TODO_3: --size-threshold (both modes)
+    # TODO_3: SIZE_THRESHOLD
     (
-        "'--size-threshold', '8',",
-        "'--size-threshold', '_',    # TODO_3: minimum number of peptides supporting a contig. "
-        "BSA default is 12; for a 150-aa nanobody with limited redundancy, try 8.",
-        '`TODO_3` (Sec. 5+6) — minimum peptides supporting a contig `--size-threshold`.',
+        'SIZE_THRESHOLD = 8      # discard contigs shorter than this in scaffolding',
+        'SIZE_THRESHOLD = _      # TODO_3: discard contigs shorter than this when scaffolding. '
+        'Smaller protein → less redundancy → lower threshold. Try 8 for a ~150-aa nanobody.',
+        '`TODO_3` (Sec. 6) — minimum contig length for scaffolding (`SIZE_THRESHOLD`).',
     ),
-    # TODO_4: --kmer-size (DBG only)
-    (
-        "'--kmer-size', '7',",
-        "'--kmer-size', '_',    # TODO_4: De Bruijn k-mer length. Short k (3-5) = "
-        "sensitive but more ambiguous walks; long k (9-11) = stricter but sparser graph. Try 7.",
-        '`TODO_4` (Sec. 6) — DBG k-mer length `--kmer-size`.',
-    ),
-    # TODO_5: CDR1 boundaries
+    # TODO_4: CDR1 boundaries
     (
         'CDR1 = (25, 35)',
-        'CDR1 = (__, __)    # TODO_5: CDR1 of a VHH framework starts around position 25 '
-        'and ends around position 35 (Kabat-ish numbering). Fill the boundaries.',
-        '`TODO_5` (Sec. 8) — CDR1 boundary positions in the nb6 reference.',
+        'CDR1 = (__, __)    # TODO_4: CDR1 of a VHH framework runs roughly from position 25 '
+        'to position 35 (Kabat-ish numbering). Fill the boundaries.',
+        '`TODO_4` (Sec. 7) — CDR1 boundary positions in the nb6 reference.',
     ),
-    # TODO_6: CDR3 start  (connects to nb6 zero-shot scan in Notebook 1)
+    # TODO_5: CDR3 start
     (
         'CDR3 = (95, WGQ if WGQ > 0 else 115)',
-        'CDR3 = (__, WGQ if WGQ > 0 else ___)    # TODO_6: CDR3 begins right after the canonical '
-        'C-anchor (second Cys ~ position 95) and ends just before the WGQGTQ motif. Fill in '
-        'both numbers — the second one is a fallback length used if WGQGTQ is not found.',
-        '`TODO_6` (Sec. 8) — CDR3 start position and fallback end position.',
+        'CDR3 = (__, WGQ if WGQ > 0 else ___)    # TODO_5: CDR3 begins right after the second '
+        'Cys (~position 95) and ends just before the WGQGTQ motif. Fill in both numbers — the '
+        'second is a fallback length if WGQGTQ is missing.',
+        '`TODO_5` (Sec. 7) — CDR3 start position and fallback end position.',
     ),
-    # TODO_7: gap penalties in pairwise alignment
+    # TODO_6: gap penalties
     (
-        'aln = pairwise2.align.localxs(target, query, -2, -1, one_alignment_only=True)',
-        'aln = pairwise2.align.localxs(target, query, ___, ___, one_alignment_only=True)'
-        '    # TODO_7: gap-open and gap-extend penalties (both negative — they '
-        'penalise gaps). -2 and -1 are reasonable defaults; make them more negative '
-        'to discourage gaps further.',
-        '`TODO_7` (Sec. 8) — gap-open and gap-extend penalties for scaffold→reference alignment.',
+        'aln = pairwise2.align.localxs(NB_REF, q, -2, -1, one_alignment_only=True)',
+        'aln = pairwise2.align.localxs(NB_REF, q, ___, ___, one_alignment_only=True)'
+        '    # TODO_6: gap-open and gap-extend penalties (both negative). -2 and -1 are '
+        'reasonable defaults; make them more negative to discourage gaps further.',
+        '`TODO_6` (Sec. 7) — gap-open and gap-extend penalties for scaffold→reference alignment.',
     ),
-    # TODO_8: L2 normalization for cosine similarity
+    # TODO_7: L2 normalization for cosine sim (matches BOTH normalisations in best_pick + ESM closure;
+    # actually only appears once in v5)
     (
         'return h / np.linalg.norm(h)',
-        'return h / ___    # TODO_8: to make a dot product equal cosine similarity, '
+        'return h / ___    # TODO_7: to make a dot product equal cosine similarity, '
         'normalise the vector by its L2 norm. Use `np.linalg.norm(h)`.',
-        '`TODO_8` (Sec. 10) — L2 normalisation step that turns dot product into cosine similarity.',
+        '`TODO_7` (Sec. 9) — L2 normalisation that turns dot product into cosine similarity.',
+    ),
+    # TODO_8: substring de-dup sort order in remove_substring_contigs
+    (
+        'contigs = sorted(set(contigs), key=len, reverse=True)',
+        'contigs = sorted(set(contigs), key=len, reverse=____)    # TODO_8: we want to '
+        "keep the LONGEST contigs and drop their substrings. Should the sort be ascending or "
+        "descending? Hint: we iterate over `contigs` and accept each unless it is already a "
+        "substring of something we've kept.",
+        '`TODO_8` (Sec. 5) — sort order in `remove_substring_contigs` so longer contigs come first.',
     ),
 ]
 
