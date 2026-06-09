@@ -1,115 +1,96 @@
-# Day 5 — Morning session: Protein Language Models & AI applications in biology
+# Day 5 (morning) — Protein Language Models & AI applications in biology
 
-**27666 · June 2026 (4 h · 09:00–13:00)**
-**Lecturer**: Konstantinos Kalogeropoulos · DTU Bioengineering / Biosustain
+**27666 · June 2026 · Friday morning, 4 hours**
 
-This morning module pairs two short lectures with two hands-on Colab exercises.
+Welcome! This morning is split into two short lectures and two hands-on Colab exercises.
 
 | Block | Time | Content |
 |---|---|---|
 | Lecture 1 | 09:00 – 09:45 | Protein Language Models |
-| Exercise 1 | 09:45 – 10:30 | `notebooks/01_plm_playground_*.ipynb` |
-| Break | 10:30 – 10:45 | |
+| Exercise 1 | 09:45 – 10:30 | `notebooks/01_plm_playground_student.ipynb` |
+| Break | 10:30 – 10:45 | ☕ |
 | Lecture 2 | 10:45 – 11:30 | AI applications in biology · foundation models · InstaNovo-FM |
-| Exercise 2 | 11:30 – 12:30 | `notebooks/02_instanexus_nanobody_*.ipynb` |
-| Wrap-up | 12:30 – 13:00 | Discussion · summary · bridge to the afternoon session |
+| Exercise 2 | 11:30 – 12:30 | `notebooks/02_instanexus_nanobody_student.ipynb` |
+| Wrap-up | 12:30 – 13:00 | Group discussion |
 
 ---
 
-## Learning objectives
+## What you'll do today
 
-By the end of the morning you will be able to:
+By the end of this session you will have:
 
-- **Explain** what makes a "language model" suitable for protein sequences — and where the analogy breaks.
-- **Describe** how a protein language model (pLM) is trained without labels, and what its embeddings encode.
-- **Use** a pLM in the three canonical ways: frozen embeddings + linear probe, fine-tuning, and zero-shot scoring.
-- **Recognise** the foundation-model paradigm in biology beyond protein sequence — single-cell, DNA, mass spectra.
-- **Reason about** InstaNovo and InstaNovo-FM as foundation models for tandem mass spectrometry.
-- **Inspect** raw InstaNovo predictions and **assemble** them into a full nanobody with InstaNexus.
+- Loaded the **ESM-2** protein language model in Colab and used it to embed sequences.
+- Seen pLM embeddings cluster nanobodies, human heavy-chain antibodies and shuffled controls — and trained a small classifier on top.
+- Used ESM-2 in **zero-shot mode** to score amino-acid preferences across a nanobody CDR3.
+- Predicted the optimal pH of enzymes from sequence with ESM-2 embeddings + Ridge regression, and compared against a hand-crafted baseline.
+- Inspected raw **InstaNovo** de novo peptide-sequencing predictions on a real nanobody MS dataset, with per-residue confidence scoring and protease-overlap diagnostics.
+- Implemented and run a **greedy assembly algorithm** to reconstruct the full nanobody (nb6) from those peptides.
+- Compared your assembly to the known reference and closed the loop by re-embedding it with ESM-2.
 
 ---
 
-## Notebooks
+## Open the exercises in Colab
 
-Each exercise has two notebook variants:
-
-| File | Use |
-|---|---|
-| `*_solved.ipynb` | Reference. Has all the code filled in. Use for teaching or self-study. |
-| `*_student.ipynb` | What you hand to students. Has **8 fill-in-the-blank `TODO_N` markers**. |
-
-A small Python script (`make_student_notebooks.py`) regenerates the `_student` notebooks
-from the `_solved` ones; the two cannot drift.
+You don't need to clone anything — just click the badges below. Each notebook downloads its own data via `wget`.
 
 ### Exercise 1 — pLM playground
 
-Open in Colab: <https://colab.research.google.com/github/DigBioLab/27666_Protein_Design/blob/main/Day_5/morning/notebooks/01_plm_playground_student.ipynb>
-
-- Load ESM-2 `t6_8M` (smallest ESM-2; runs on free Colab CPU)
-- Embed 10 nanobodies + 10 human IGHV germlines + 10 shuffled controls
-- PCA + UMAP visualisation → save a PNG suitable for slides
-- 5-fold logistic-regression classifier on the embeddings
-- Zero-shot mutational scan of nb6's CDR3 (preview of Exercise 2)
-- **Downstream task**: predict enzyme optimal pH from sequence (composition baseline vs ESM-2 embeddings + Ridge)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DigBioLab/27666_Protein_Design/blob/main/Day_5/morning/notebooks/01_plm_playground_student.ipynb)
 
 ### Exercise 2 — Inspect InstaNovo predictions & assemble nb6
 
-Open in Colab: <https://colab.research.google.com/github/DigBioLab/27666_Protein_Design/blob/main/Day_5/morning/notebooks/02_instanexus_nanobody_student.ipynb>
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DigBioLab/27666_Protein_Design/blob/main/Day_5/morning/notebooks/02_instanexus_nanobody_student.ipynb)
 
-- `wget` the nb6 InstaNovo predictions from `Day_5/morning/data/NB6.csv`
-- **Pre-assembly checks**: per-residue confidence (0–1 scale), peptide length by protease, inter-protease Jaccard overlap, pre-assembly coverage of the reference
-- Run `instanexus` in both **greedy** and **De Bruijn graph (k = 7)** modes
-- Load the final consensus FASTAs from `outputs/nb6/<mode>_c0.8[_ks7]/scaffolds/consensus/consensus_fasta/`
-- Pairwise-align scaffolds against the known nb6 reference → coverage plot with CDR1/2/3 highlighted
-- (Stretch) re-embed the best scaffold with ESM-2 → cosine similarity to the reference → closes the loop with Exercise 1
+> If a notebook has trouble loading on Colab, save it to your Drive: *File → Save a copy in Drive*. Restart the runtime (`Runtime → Restart session`) after any `pip install` cell.
+
+---
+
+## How the notebooks are set up
+
+Each exercise contains **8 fill-in-the-blank `TODO_N` markers**. Each blank is a real design choice a researcher makes — not a trick question. The markdown above the cell, and the hint inside the comment, usually contain the answer. The first markdown cell of each notebook lists every blank with the section it lives in, so you can use it as a checklist.
+
+If a cell crashes with `SyntaxError` or `NameError`, double-check that every `___` and `____` placeholder has been filled in.
+
+A `*_solved.ipynb` companion notebook exists in the same folder. Try to resist looking at it!
+
+---
+
+## Quick environment notes
+
+Both notebooks run end-to-end on **free-tier Google Colab CPU** in about 5–15 minutes each. A GPU is faster for Exercise 1 (especially the pH-prediction section) but is not required.
+
+- Exercise 1 installs only `transformers`, `umap-learn`, and the standard ML stack (~30 s).
+- Exercise 2 installs only `biopython` plus the standard ML stack — no native binaries.
+
+You will see one explicit `wget` cell in Exercise 2 that pulls `NB6.csv` (~10 MB) from this repository.
 
 ---
 
 ## Data
 
-| File | Source | Used by |
-|---|---|---|
-| `data/NB6.csv` | InstaNovo predictions on a single nanobody (nb6), 9 proteases, DTU Bioengineering Proteomics Core 2025 | Exercise 2 |
-
-The metadata JSON + contaminants FASTA are generated **inline** by Notebook 2 (no upload needed).
+| File | Description |
+|---|---|
+| `data/NB6.csv` | InstaNovo de novo peptide predictions for nanobody **nb6**, digested with 9 different proteases, measured by LC-MS/MS at the DTU Bioengineering Proteomics Core Facility (2025). |
 
 ---
 
 ## Slides
 
-Slides for both lectures live in `slides/` and are produced from markdown outlines via
-`build_pptx_v2.py` (in the parent course folder). Each `.pptx` carries:
-
-- DTU-orange banner at the top of every content slide (matching course 27833 Day 3 style)
-- Slide numbers (`N / total`)
-- Real figures embedded from the Gurev MLCB 2024 deck (Module 1) and the author's
-  foundation-model PNGs (Module 2)
-- Citation footers naming the original source for every reused figure
+Lecture slides will be uploaded to this folder separately and made available on DTU Learn.
 
 ---
 
-## Setup
+## Acknowledgements
 
-Free-tier Google Colab handles everything end-to-end. Only Notebook 2 needs a
-real install:
+Many figures in Lecture 1 are adapted from Sarah Gurev's protein language models tutorial at MLCB 2024 (with credit to Aaron Kollasch, Noor Youssef, John Ingraham, and Adam Riesselman). The enzyme optimal-pH dataset is distributed via the [ESM2-Tutorial](https://github.com/ProteinVision/ESM2-Tutorial) repository.
 
-```python
-!pip install -q 'pandas==2.2.2' instanexus logomaker biopython matplotlib seaborn
-!apt-get install -y -qq clustalo > /dev/null
-# MMseqs2 static binary fetched from mmseqs.com
-```
+**Tools and papers**:
 
-Restart the runtime after the `pip install` if `pandas` was already imported.
-
----
-
-## Citations
-
-- **InstaNovo** — Eloff K.\*, Kalogeropoulos K.\* et al. *Nat Mach Intell* 7, 565–579 (2025).
+- **ESM-2** — Lin Z. et al. *Science* 379, 1123–1130 (2023).
+- **InstaNovo** — Eloff K.*, Kalogeropoulos K.* et al. *Nat Mach Intell* 7, 565–579 (2025).
 - **InstaNexus** — Reverenna M. et al. *Mol Cell Proteomics* 25:4 (2026).
 - **InstaNovo-FM** — Nieuwoudt M., Reverenna M., …, Kalogeropoulos K. *in preparation*, 2026.
-- **ESM-2** — Lin Z. et al. *Science* 379, 1123–1130 (2023).
-- **MMseqs2** — Steinegger M., Söding J. *Nat Biotech* 35, 1026–1028 (2017).
-- **Clustal Omega** — Sievers F. et al. *Mol Syst Biol* 7, 539 (2011).
-- **phopt** pH-prediction dataset — distributed via the ESM2-Tutorial repo (Gado et al. 2024).
-- Lecture 1 visuals — adapted from Sarah Gurev's MLCB 2024 PLM tutorial (with credit to Aaron Kollasch, Noor Youssef, John Ingraham, Adam Riesselman).
+
+---
+
+**Course lecturer (morning session)**: Konstantinos Kalogeropoulos · DTU Bioengineering / Biosustain
