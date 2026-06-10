@@ -80,6 +80,12 @@ Lecture slides will be uploaded to this folder separately and made available on 
 
 ---
 
+## Going further
+
+If you finish early or want to keep exploring pLMs on your own time, take a look at the **[Multiomics Analytics Group's `course_protein_language_modeling`](https://github.com/Multiomics-Analytics-Group/course_protein_language_modeling/tree/main)**. It is a fuller short-course on pLMs by Alberto Santos and colleagues at DTU Biosustain, with hands-on Colab notebooks that go beyond what we cover today — full-stack fine-tuning of ESM on a downstream task, per-residue embeddings, the `bio-embeddings` library, and *de novo* protein design with a pLM.
+
+---
+
 ## Acknowledgements
 
 Many figures in Lecture 1 are adapted from Sarah Gurev's protein language models tutorial at MLCB 2024 (with credit to Aaron Kollasch, Noor Youssef, John Ingraham, and Adam Riesselman). The enzyme optimal-pH dataset is distributed via the [ESM2-Tutorial](https://github.com/ProteinVision/ESM2-Tutorial) repository.
