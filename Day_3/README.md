@@ -18,6 +18,10 @@ RFdiffusion3 (RFD3)  →  ProteinMPNN / LigandMPNN  →  RosettaFold3 (RF3)
 
 ---
 
+## Link to weights and installs 
+
+https://drive.google.com/drive/folders/16U53YKuuZ8vJpc-OGXyaVFXr2kk9lz52?usp=sharing
+
 ## Folder structure
 
 ```
