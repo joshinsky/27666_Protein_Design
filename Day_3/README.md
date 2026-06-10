@@ -1,5 +1,7 @@
 # Day 3 — Computational Protein Design
 
+We will run this notebook in Google Colab, not on the HPC to skip waiting times in the LSF queueing system. 
+
 Two end-to-end design pipelines running on Google Colab: **binder design** (de novo protein binders against a target) and **enzyme design** (scaffolding a theozyme around a fixed catalytic geometry). Both follow the same three-step workflow:
 
 ```
@@ -19,8 +21,35 @@ RFdiffusion3 (RFD3)  →  ProteinMPNN / LigandMPNN  →  RosettaFold3 (RF3)
 ---
 
 ## Link to weights and installs 
-
+ Open this link: 
+ 
 https://drive.google.com/drive/folders/16U53YKuuZ8vJpc-OGXyaVFXr2kk9lz52?usp=sharing
+
+
+## How to get started:
+
+1. Open the link provided above.
+2. Make a short-cut to your Google drive (Press on the tile of the folder protein_design and select 'Organise' and 'Add short-cut' 
+<img width="1013" height="664" alt="Screenshot 2026-06-10 at 12 10 07" src="https://github.com/user-attachments/assets/8139c2f8-43c5-42c1-9292-f40f186ee671" />
+3. Place this short-cut directly into 'Mydrive' and press 'add'
+<img width="650" height="538" alt="Screenshot 2026-06-10 at 12 15 46" src="https://github.com/user-attachments/assets/af3aa23a-0240-4e91-a1dd-58d4d7b8b1b7" />
+4. Navigate to your own drive by clicking on 'Mydrive' in the list of options on the left
+<img width="254" height="580" alt="Screenshot 2026-06-10 at 12 18 39" src="https://github.com/user-attachments/assets/3ebdbac8-a4b6-4978-8a06-ae2f3318feb4" />
+5. Go into the newly linked protein_design folder in your drive and open the jupyter file.
+6. Google provides free resources of computing. We will need a GPU for RFdiffusion3 and RosettaFold3, so let's change the runtime type: 
+
+<img width="1486" height="533" alt="Screenshot 2026-06-10 at 12 22 13" src="https://github.com/user-attachments/assets/48cf34d4-3e20-456f-ab25-db0fe3383808" />
+
+Here we select Python as language and a T4 GPU as the computing resource.
+
+<img width="606" height="591" alt="Screenshot 2026-06-10 at 12 22 32" src="https://github.com/user-attachments/assets/92e362d1-c1ec-44c9-92f7-d2e2f598c0bd" />
+
+Now we are good to start:
+
+<img width="471" height="190" alt="Screenshot 2026-06-10 at 12 22 58" src="https://github.com/user-attachments/assets/2e363589-6126-43b3-a442-cce5bd00b1a0" />
+
+
+
 
 ## Folder structure
 
