@@ -6,12 +6,14 @@ Welcome! This morning is split into two short lectures and two hands-on Colab ex
 
 | Block | Time | Content |
 |---|---|---|
-| Lecture 1 | 09:00 – 09:45 | Protein Language Models |
-| Exercise 1 | 09:45 – 10:30 | `notebooks/01_plm_playground_student.ipynb` |
-| Break | 10:30 – 10:45 | ☕ |
-| Lecture 2 | 10:45 – 11:30 | AI applications in biology · foundation models · InstaNovo-FM |
-| Exercise 2 | 11:30 – 12:30 | `notebooks/02_instanexus_nanobody_student.ipynb` |
-| Wrap-up | 12:30 – 13:00 | Group discussion |
+| Lecture 1 | 08:30 – 09:15 | Protein Language Models |
+| Break | 09:15 – 09:30 | ☕ |
+| Exercise 1 | 09:30 – 10:15 | `notebooks/01_plm_playground_student.ipynb` |
+| Break | 10:15 – 10:30 | ☕ |
+| Lecture 2 | 10:30 – 11:15 | AI applications in biology |
+| Break | 11:15 – 11:30 | ☕ |
+| Exercise 2 | 11:30 – 12:15 | `notebooks/02_instanexus_nanobody_student.ipynb` |
+| Wrap-up | 12:15 – 12:30 | Group discussion |
 
 ---
 
@@ -95,8 +97,7 @@ Many figures in Lecture 1 are adapted from Sarah Gurev's protein language models
 - **ESM-2** — Lin Z. et al. *Science* 379, 1123–1130 (2023).
 - **InstaNovo** — Eloff K.*, Kalogeropoulos K.* et al. *Nat Mach Intell* 7, 565–579 (2025).
 - **InstaNexus** — Reverenna M. et al. *Mol Cell Proteomics* 25:4 (2026).
-- **InstaNovo-FM** — Nieuwoudt M., Reverenna M., …, Kalogeropoulos K. *in preparation*, 2026.
 
 ---
 
-**Course lecturer (morning session)**: Konstantinos Kalogeropoulos · DTU Bioengineering / Biosustain
+**Course lecturer (morning session)**: Konstantinos Kalogeropoulos · DTU Bioengineering
