@@ -1,6 +1,6 @@
 # Day 5 (morning) — Protein Language Models & AI applications in biology
 
-**27666 · June 2026 · Friday morning, 4 hours**
+**27666 · June 2026 · Friday morning, 3.5 hours**
 
 Welcome! This morning is split into two short lectures and two hands-on Colab exercises.
 
@@ -12,8 +12,7 @@ Welcome! This morning is split into two short lectures and two hands-on Colab ex
 | Break | 10:15 – 10:30 | ☕ |
 | Lecture 2 | 10:30 – 11:15 | AI applications in biology |
 | Break | 11:15 – 11:30 | ☕ |
-| Exercise 2 | 11:30 – 12:15 | `notebooks/02_instanexus_nanobody_student.ipynb` |
-| Wrap-up | 12:15 – 12:30 | Group discussion |
+| Exercise 2 | 11:30 – 12:00 | `notebooks/02_instanexus_nanobody_student.ipynb` |
 
 ---
 
@@ -84,7 +83,23 @@ Lecture slides will be uploaded to this folder separately and made available on 
 
 ## Going further
 
+### A deeper dive into pLMs
+
 If you finish early or want to keep exploring pLMs on your own time, take a look at the **[Multiomics Analytics Group's `course_protein_language_modeling`](https://github.com/Multiomics-Analytics-Group/course_protein_language_modeling/tree/main)**. It is a fuller short-course on pLMs by Alberto Santos and colleagues at DTU Biosustain, with hands-on Colab notebooks that go beyond what we cover today — full-stack fine-tuning of ESM on a downstream task, per-residue embeddings, the `bio-embeddings` library, and *de novo* protein design with a pLM.
+
+### Running the full InstaNexus pipeline
+
+The greedy assembly we implemented inline in Exercise 2 is the **core** of the InstaNexus pipeline — but not the whole story. The full tool also runs MMseqs2 clustering, Clustal Omega alignment and a `logomaker` consensus step on top of the greedy contigs, producing **proper scaffolds and consensus FASTAs** ready for downstream analysis. If you want to run that complete pipeline yourself — inspect intermediate files, try the De Bruijn graph mode, swap in your own MS data — the **[InstaNexus repository](https://github.com/Multiomics-Analytics-Group/InstaNexus)** ships ready-to-run **GitHub Codespaces** demos.
+
+**Why Codespaces and not Colab?** The full pipeline needs MMseqs2 + Clustal Omega + `logomaker` system-wide. Codespaces gives you a pre-configured Linux container with everything already installed — no environment fights.
+
+**Setup & execution**:
+
+1. **Launch**: open the [InstaNexus repo](https://github.com/Multiomics-Analytics-Group/InstaNexus), click the green **Code** button, select the **Codespaces** tab, then click **Create codespace on main**.
+2. **Navigate**: open the `demo/` folder once your container is ready.
+3. **Run**: open any `.ipynb` file in `demo/` and execute the cells. You can use the bundled small inputs or drop in your own data (including `NB6.csv` from this repo if you want a direct comparison with our greedy-only inline version).
+
+> **Quota warning**: GitHub gives free accounts **60 hours/month of Codespaces** time. When you're done, **save your work and stop the container**: bottom-left corner → *Stop Current Codespace* (or delete it entirely if you don't plan to come back).
 
 ---
 
@@ -99,5 +114,3 @@ Many figures in Lecture 1 are adapted from Sarah Gurev's protein language models
 - **InstaNexus** — Reverenna M. et al. *Mol Cell Proteomics* 25:4 (2026).
 
 ---
-
-**Course lecturer (morning session)**: Konstantinos Kalogeropoulos · DTU Bioengineering
