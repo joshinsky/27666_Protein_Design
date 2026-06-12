@@ -2,6 +2,8 @@
 
 **27666 · June 2026 · Friday morning, 3.5 hours**
 
+Lecture recording | [Panopto](https://panopto.dtu.dk/Panopto/Pages/Viewer.aspx?id=4c973ae9-841d-40b4-9d1b-b467006cdc6d). Login with your DTU credentials. 
+
 Welcome! This morning is split into two short lectures and two hands-on Colab exercises.
 
 | Block | Time | Content |
