@@ -29,7 +29,7 @@ training run, and it teaches the whole stack — dataloader, dataset metadata
   (the training run) goes through a **submit script**.
 - The **course environment** — no installation needed:
   ```bash
-  source /dtu/blackhole/00/c27666/miniforge/bin/activate
+  source /dtu/blackhole/00/c27666/miniforge3/bin/activate
   conda activate protein-design
   ```
 - Comfort with a Linux shell, `git`, editing YAML, and viewing structures in PyMOL.
